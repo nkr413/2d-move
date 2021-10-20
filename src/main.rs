@@ -2,7 +2,6 @@ extern crate glutin_window;
 extern crate graphics;
 extern crate opengl_graphics;
 extern crate piston;
-extern crate rand;
 
 use piston::input::*;
 use glutin_window::GlutinWindow as Window;
@@ -40,16 +39,6 @@ impl App {
 			rectangle(RED, [0.0, 0.0, x_size, y_size], transform, gl);
 		});
 	}
-
-	// fn update(&mut self, args: &UpdateArgs) {
-	// 	loop {
-	// 		let mut num_i64 = self.snake.x as i64;
-	// 		num_i64 += 20 as i64;
-	// 		self.snake.x = num_i64 as f64;
-
-	// 		if self.snake.x > 600 as f64 {break;}
-	// 	}
-	// }
 
 	fn press(&mut self, args: &Button) {
 		const d: i64 = 20;
@@ -111,7 +100,6 @@ fn main() {
 	while let Some(e) = events.next(&mut window) {
 		if let Some(args) = e.render_args() {app.render(&args);}
 		if let Some(b) = e.press_args() {app.press(&b);}
-		//if let Some(u) = e.update_args() {app.update(&u);}
 	}
 }
 
