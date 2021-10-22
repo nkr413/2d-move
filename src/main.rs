@@ -50,28 +50,28 @@ impl App {
 					num_i64 -= d;
 					self.y = num_i64 as f64;
 
-					if self.y < -20.0 as f64 {self.y = 580 as f64;}
+					if self.y < 0.0 as f64 {self.y = 580 as f64;}
 				}
 				Key::Down => {
 					let mut num_i64 = self.y as i64;
 					num_i64 += d;
 					self.y = num_i64 as f64;
 
-					if self.y > 580 as f64 {self.y = -20.0 as f64;}
+					if self.y > 580 as f64 {self.y = 0.0 as f64;}
 				}
 				Key::Left => {
 					let mut num_i64 = self.x as i64;
 					num_i64 -= d;
 					self.x = num_i64 as f64;
 
-					if self.x < -20.0 as f64 {self.x = 580 as f64;}
+					if self.x < 0.0 as f64 {self.x = 580 as f64;}
 				}
 				Key::Right => {
 					let mut num_i64 = self.x as i64;
 					num_i64 += d;
 					self.x = num_i64 as f64;
 
-					if self.x > 580 as f64 {self.x = -20.0 as f64;}
+					if self.x > 580 as f64 {self.x = 0.0 as f64;}
 				}
 				_ => {}
 			}
@@ -99,7 +99,7 @@ fn main() {
 	let mut events = Events::new(EventSettings::new().ups(8));
 	while let Some(e) = events.next(&mut window) {
 		if let Some(args) = e.render_args() {app.render(&args);}
-		if let Some(b) = e.press_args() {app.press(&b);}
+		if let Some(args) = e.press_args() {app.press(&args);}
 	}
 }
 
